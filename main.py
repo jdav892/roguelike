@@ -16,7 +16,9 @@ def main():
        title="RogueLike",
        vsync=True,
    )as context:
+       #Numpy accesses 2D arrays in [y, x] order which is pretty unintuitive but should be noted
        root_console = tcod.Console(screen_width, screen_height, order="F")
+       #Game loop
        while True:
            #to be printed to screen
            root_console.print(x=1, y=1, string="@")
@@ -24,8 +26,6 @@ def main():
            for event in tcod.event.wait():
                if event.type == "QUIT":
                    raise SystemExit()
-    
-    
     
     
 if __name__ == "__main__":
