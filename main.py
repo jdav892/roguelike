@@ -5,7 +5,7 @@ def main():
    screen_height = 50
    
    tileset = tcod.tileset.load_tilesheet(
-       "pyimg.png", 32, 8, tcod.tileset.CHARMAP_TCOD
+       "roguelike/pyimg.png", 32, 8, tcod.tileset.CHARMAP_TCOD
    )
    with tcod.context.new_terminal(
        screen_width,
