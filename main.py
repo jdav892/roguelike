@@ -33,6 +33,7 @@ def main():
            #to be printed to screen at player(x,y)
            root_console.print(x=player_x, y=player_y, string="@")
            context.present(root_console)
+           #root_console.clear() is used to clear old positions of player
            root_console.clear()
            for event in tcod.event.wait():
                if event.type == "QUIT":
