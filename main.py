@@ -23,7 +23,7 @@ def main():
        root_console = tcod.Console(screen_width, screen_height, order="F")
        #Game loop
        while True:
-           #to be printed to screen
+           #to be printed to screen at player(x,y)
            root_console.print(x=player_x, y=player_y, string="@")
            context.present(root_console)
            for event in tcod.event.wait():
