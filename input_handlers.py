@@ -9,7 +9,7 @@ class EventHandler(tcod.event.EventDispatch[Action]):
         #Quit event when we click "X" window of the program
         raise SystemExit()
     
-    def ev_keydown(self, event: tcod.eventKeyDown) -> Optional[Action]:
+    def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[Action]:
         #Set to None if no key valid key is pressed.
         action: Optional[Action] = None
         
