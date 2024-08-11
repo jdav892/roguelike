@@ -31,7 +31,7 @@ def main():
        vsync=True,
    )as context:
        #Numpy accesses 2D arrays in [y, x] order which is pretty unintuitive but should be noted
-       root_console = tcod.Console(screen_width, screen_height, order="F")
+       root_console = tcod.console.Console(screen_width, screen_height, order="F")
        #Game loop
        while True:
            #to be printed to screen at player(x,y)
