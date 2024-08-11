@@ -1,16 +1,14 @@
 import tcod
 
 from actions import EscapeAction, MovementAction
+from entity import Entity
 from input_handlers import EventHandler
 
 
 def main():
     #Screen size variables
    screen_width = 80
-   screen_height = 50
-   
-   player_x = int(screen_width / 2)
-   player_y = int(screen_height / 2)
+   screen_height = 50 
    
    #title of screen
    tileset = tcod.tileset.load_tilesheet(
@@ -18,6 +16,12 @@ def main():
    )
    
    event_handler = EventHandler()
+   
+   #Using Entity to initialize player and npc
+   player = Entity(int(screen_width / 2), int(screen_height / 2), "@", (255, 255, 255))
+   npc = Entity(int(screen_width / 2 - 5), int(screen_height / 2), "@", (255, 255, 0))
+   entities = {npc, player}
+   
    
    with tcod.context.new_terminal(
        screen_width,
@@ -31,7 +35,7 @@ def main():
        #Game loop
        while True:
            #to be printed to screen at player(x,y)
-           root_console.print(x=player_x, y=player_y, string="@")
+           root_console.print(x=player.x, y=player.y, string=player.char, fg=player.color)
            context.present(root_console)
            #root_console.clear() is used to clear old positions of player
            root_console.clear()
@@ -44,8 +48,7 @@ def main():
                    continue
                if isinstance(action, MovementAction):
                    #updating player position based on key press through action
-                   player_x += action.dx
-                   player_y += action.dy
+                   player.move(dx = action.dx, dy = action.dy)
                elif isinstance(action, EscapeAction):
                    raise SystemExit()    
     
