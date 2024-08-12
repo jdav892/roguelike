@@ -7,6 +7,7 @@ from input_handlers import EventHandler
 
 
 class Engine:
+    #forced uniqueness using a set because adding an entity to the set twice doesn't make sense
     def __init__(self, entities: Set[Entity], event_handler: EventHandler, player: Entity):
         self.entities = entities
         self.event_handler = event_handler
