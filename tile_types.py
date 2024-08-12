@@ -29,4 +29,9 @@ def new_tile(
     """Helper function for defining individual tile types"""
     return np.array((walkable, transparent, dark), dtype=tile_dt)
 
-floor 
+floor = new_tile(
+    walkable=True, transparent=True, dark=(ord(" "), (255, 255, 255), (50, 50, 150)),
+)
+wall = new_tile(
+    walkable=True, transparent=False, dark=(ord(" "), (255, 255, 255), (0, 0, 100)),
+)
