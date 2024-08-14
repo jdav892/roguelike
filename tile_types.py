@@ -31,6 +31,7 @@ def new_tile(
     """Helper function for defining individual tile types"""
     return np.array((walkable, transparent, dark, light), dtype=tile_dt)
 
+#SHROUD is for unwalked, and unseen titles
 SHROUD = np.array((ord(" "), (255, 255, 255), (0, 0, 0)), dtype=graphic_dt)
 
 floor = new_tile(
