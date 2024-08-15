@@ -1,4 +1,11 @@
-from typing import Tuple
+from __future__ import annotations
+import copy
+from typing import Tuple, TypeVar, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from game_map import GameMap
+    
+T = TypeVar("T", bound="Entity")
 
 class Entity:
     """A generic object to represent things in game such as Players, Enemies, Items, etc."""
