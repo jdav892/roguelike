@@ -16,7 +16,9 @@ def main():
    room_max_size = 10
    room_min_size = 6
    max_rooms = 30
+   max_monsters_per_room = 2
    
+
    #title of screen
    tileset = tcod.tileset.load_tilesheet(
        "roguelike/pyimg.png", 32, 8, tcod.tileset.CHARMAP_TCOD
@@ -33,6 +35,7 @@ def main():
        room_max_size=room_max_size,
        map_width=map_width,
        map_height=map_height,
+       max_monsters_per_room=max_monsters_per_room,
        player=player
    )
    engine = Engine(event_handler=event_handler, game_map=game_map, player=player)
