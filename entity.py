@@ -10,13 +10,14 @@ T = TypeVar("T", bound="Entity")
 class Entity:
     """A generic object to represent things in game such as Players, Enemies, Items, etc."""
     
-    def __init__(self, 
-                 x: int = 0, 
-                 y: int = 0, 
-                 char: str = "?", 
-                 color: Tuple[int, int, int] = (255, 255, 255),
-                 name: str = "<Unnamed>",
-                 blocks_movement: bool = False,
+    def __init__(
+        self, 
+        x: int = 0, 
+        y: int = 0, 
+        char: str = "?", 
+        color: Tuple[int, int, int] = (255, 255, 255),
+        name: str = "<Unnamed>",
+        blocks_movement: bool = False,
     ):
         self.x = x
         self.y = y
