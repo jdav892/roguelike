@@ -1,4 +1,4 @@
-from typing import Set, Iterable, Any
+from typing import Iterable, Any
 from tcod.context import Context
 from tcod.console import Console
 from tcod.map import compute_fov
@@ -9,8 +9,7 @@ from input_handlers import EventHandler
 
 class Engine:
     #forced uniqueness using a set because adding an entity to the set twice doesn't make sense
-    def __init__(self, entities: Set[Entity], event_handler: EventHandler, game_map: GameMap, player: Entity):
-        self.entities = entities
+    def __init__(self, event_handler: EventHandler, game_map: GameMap, player: Entity):
         self.event_handler = event_handler
         self.game_map = game_map
         self.player = player
