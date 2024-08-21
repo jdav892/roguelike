@@ -5,7 +5,8 @@ from tcod.console import Console
 
 import tile_types
 
-if TYPE_CHECKING: 
+if TYPE_CHECKING:
+    from engine import Engine 
     from entity import Entity
 
 class GameMap:
