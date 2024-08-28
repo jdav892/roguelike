@@ -46,7 +46,7 @@ class EventHandler(tcod.event.EventDispatch[Action]):
         elif key == tcod.event.KeySym.RIGHT:
             action = BumpAction(player, dx = 1, dy = 0)
 
-        elif key == tcod.event.K_ESCAPE:
+        elif key == tcod.event.KeySym.ESCAPE:
             #Escape key press exits the game through returning the EscapeAction
             action = EscapeAction(player)
             

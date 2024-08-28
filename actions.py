@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Option, Tuple, TYPE_CHECKING
+from typing import Optional, Tuple, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from engine import Engine
@@ -9,7 +9,11 @@ class Action:
     def __init__(self, entity: Entity) -> None:
         super().__init__()
         self.entity = entity
-        
+    
+    @property
+    def engine(self) -> Engine:
+        """Return the engine this action belongs to.""" 
+        return self.entity.gamemap.engine 
     
     def perform(self) -> None:
         """Perform this action with the objects needed to determine its scope.
@@ -33,10 +37,10 @@ class ActionWithDirection(Action):
     @property
     def dest_xy(self) -> Tuple[int, int]:
         """Returns the destination of this action"""
-        return self.entity.x + self.dx, self.entity + self.dy
+        return self.entity.x + self.dx, self.entity.y + self.dy
     
     @property
-    def blocking_entity(self) -> Option[Entity]:
+    def blocking_entity(self) -> Optional[Entity]:
         """Return the blocking entity at this actions destination"""
         return self.engine.game_map.get_blocking_entity_at_location(*self.dest_xy)
     
