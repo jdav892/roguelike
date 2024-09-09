@@ -1,13 +1,16 @@
-from __future__ import annotations
-from typing import TYPE_CHECKING
+from components.base_component import BaseComponent
 
-if TYPE_CHECKING:
-    from engine import Engine
-    from entity import Entity
-    
-class BaseComponent:
-    entity: Entity #Owns instance of entity
-    
+class Fighter(BaseComponent):
+    def __init__(self, hp: int, defense: int, power: int):
+        self.max_hp = hp
+        self._hp = hp
+        self.defense = defense
+        self.power = power
+        
     @property
-    def engine(self) -> Engine:
-        return self.entity.gamemap.engine
+    def hp(self) -> int:
+        return self._hp
+    
+    @hp.setter
+    def hp(self, value: int) -> None:
+        self._hp = max(0, min(value, self.max_hp))
