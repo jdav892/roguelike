@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from tcod.context import Context
 from tcod.console import Console
 from tcod.map import compute_fov
-from entity import Entity
+from entity import Actor
 from game_map import GameMap
 from input_handlers import EventHandler
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 class Engine:
     game_map: GameMap
     #forced uniqueness using a set because adding an entity to the set twice doesn't make sense
-    def __init__(self, player: Entity):
+    def __init__(self, player: Actor):
         self.event_handler: EventHandler = EventHandler(self)
         self.player = player
      
@@ -40,6 +40,12 @@ class Engine:
     
     def render(self, console: Console, context: Context) -> None:
         self.game_map.render(console)
+        
+        console.print(
+            x=1,
+            y=47,
+            string=f"HP: {self.player.fighter.hp}/{self.player.fighter.max_hp}"
+        )
             
         context.present(console)
         
