@@ -22,8 +22,9 @@ class Engine:
     def handle_enemy_turns(self) -> None:
         for entity in self.game_map.entities - {self.player}:
             #Fairly sure this is printing every npc that on the generated dungeon floor
-            print(f"The {entity.name} grumbles")
-        
+            #Changed this from printing presence of enemy to using ai for movement
+            if entity.ai:
+                entity.ai.perform() 
                
     def update_fov(self) -> None:
         """Recompute the visible area based on the players point of view."""
