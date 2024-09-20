@@ -32,7 +32,7 @@ MOVEMENT_KEYS = {
 WAIT_KEYS = {
     tcod.event.KeySym.KP_PERIOD,
     tcod.event.KeySym.KP_5,
-    tcod.event.KeySym.K_CLEAR,
+    tcod.event.KeySym.KP_CLEAR,
 }
 
 
@@ -75,6 +75,11 @@ class EventHandler(tcod.event.EventDispatch[Action]):
         #elif key == tcod.event.KeySym.RIGHT:
         #    action = BumpAction(player, dx = 1, dy = 0)
         
+        if key in MOVEMENT_KEYS:
+            dx, dy = MOVEMENT_KEYS[key]
+            action = BumpAction(player, dx, dy)
+        elif key in WAIT_KEYS:
+            action = WaitAction(player) 
         elif key == tcod.event.KeySym.ESCAPE:
             #Escape key press exits the game through returning the EscapeAction
             action = EscapeAction(player)
