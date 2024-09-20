@@ -56,10 +56,10 @@ class ActionWithDirection(Action):
 class MeleeAction(ActionWithDirection):
     def perform(self) -> None:
         target = self.blocking_entity
-        if not target:
+        if not target or target.name == "Player":
             return #No Entity to attack.
         
-        print(f"You kick the {target.name}, they did not like it very much!")
+        print(f"The {target.name} found you")
     
 class MovementAction(ActionWithDirection):
     def perform(self) -> None:
