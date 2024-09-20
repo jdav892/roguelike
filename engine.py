@@ -5,18 +5,19 @@ from tcod.console import Console
 from tcod.map import compute_fov
 from entity import Actor
 from game_map import GameMap
-from input_handlers import EventHandler
+from input_handlers import MainGameEventHandler
 
 if TYPE_CHECKING:
     from entity import Entity
     from game_map import GameMap
+    from input_handlers import EventHandler
 
 
 class Engine:
     game_map: GameMap
     #forced uniqueness using a set because adding an entity to the set twice doesn't make sense
     def __init__(self, player: Actor):
-        self.event_handler: EventHandler = EventHandler(self)
+        self.event_handler: EventHandler = MainGameEventHandler(self)
         self.player = player
      
     def handle_enemy_turns(self) -> None:
