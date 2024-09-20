@@ -22,7 +22,7 @@ class Engine:
     def handle_enemy_turns(self) -> None:
         for entity in self.game_map.entities - {self.player}:
             #Fairly sure this is printing every npc that on the generated dungeon floor
-            print(f"The {entity.name} wonders when it will gets a real turn")
+            print(f"The {entity.name} grumbles")
         
                
     def update_fov(self) -> None:
