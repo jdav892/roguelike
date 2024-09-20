@@ -28,12 +28,12 @@ class BaseAI(Action, BaseComponent):
                  in order to surround the player. 
                  """
                 cost[entity.x, entity.y] += 10
-                
+        # Create a graph from the cost array and pass that graph to a new pathfinder.       
         graph = tcod.path.SimpleGraph(cost = cost, cardinal = 2, diagonal = 3)
         pathfinder = tcod.path.Pathfinder(graph)
         
         pathfinder.add_root((self.entity.x, self.entity.y))
-        
+       # Compute the path to the destination and remove the starting point. 
         path: List[List[int]] = pathfinder.path_to((dest_x, dest_y))[1:].tolist()
-        
+       # Convert from list[List[int]] to List[Tuple[int, int]].
         return [(index[0], index[1]) for index in path]
