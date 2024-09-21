@@ -60,8 +60,11 @@ def main():
        #Game loop
        while True:
            #to be printed to screen at player(x,y)
-           engine.render(console=root_console, context=context)
-           engine.event_handler.handle_events()
+           root_console.clear()
+           engine.event_handler.on_render(console=root_console)
+           context.present(root_console)
+           
+           engine.event_handler.handle_events(context)
            #using engine object to handle screen behavior
     
 if __name__ == "__main__":
