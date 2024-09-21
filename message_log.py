@@ -1,4 +1,4 @@
-from typing import List, Reversible, Tuple
+from typing import Iterable, List, Reversible, Tuple
 
 import textwrap
 
@@ -44,9 +44,16 @@ class MessageLog:
         the `console`.
         """
         self.render_messages(console, x, y, width, height, self.messages)
-        
     
     @staticmethod
+    def wrap(string: str, width: int) -> Iterable[str]:
+        """Return wrapped text""" 
+        for line in string.splitlines(): #Handle new lines in messages
+            yield from textwrap.wrap(
+                line, width, expand_tabs=True,
+            )
+    
+    @classmethod
     def render_messages(
         console: tcod.console.Console,
         x: int,
