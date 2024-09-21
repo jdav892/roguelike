@@ -45,14 +45,14 @@ def main():
    engine.update_fov()
    
    engine.message_log.add_message(
-       "Hello and welcome, adventurer, to yet another dungeon!", color.welcome_text
+       "Welcome to another dungeon, good luck!", color.welcome_text
    )
    
    with tcod.context.new_terminal(
        screen_width,
        screen_height,
        tileset=tileset,
-       title="RogueLike",
+       title="Dungeon Runner",
        vsync=True,
    )as context:
        #Numpy accesses 2D arrays in [y, x] order which is pretty unintuitive but should be noted
