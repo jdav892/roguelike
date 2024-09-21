@@ -98,7 +98,7 @@ class MainGameEventHandler(EventHandler):
         elif key == tcod.event.KeySym.ESCAPE:
             #Escape key press exits the game through returning the EscapeAction
             action = EscapeAction(player)
-        elif key == tcod.event.KeySym.K_v:
+        elif key == tcod.event.K_v:
             self.engine.event_handler = HistoryViewer(self.engine)
             
         return action
@@ -127,10 +127,10 @@ class GameOverEventHandler(EventHandler):
     
 
 CURSOR_Y_KEYS = {
-    tcod.event.KeySym.K_UP: -1,
-    tcod.event.KeySym.K_DOWN: 1,
-    tcod.event.KeySym.K_PAGEUP: -10,
-    tcod.event.KeySym.K_PAGEDOWN: 10,
+    tcod.event.KeySym.UP: -1,
+    tcod.event.KeySym.DOWN: 1,
+    tcod.event.KeySym.PAGEUP: -10,
+    tcod.event.KeySym.PAGEDOWN: 10,
 }
 
 class HistoryViewer(EventHandler):
@@ -176,9 +176,9 @@ class HistoryViewer(EventHandler):
             else:
                 #Otherwise move while staying clamped to the bounds of log
                 self.cursor = max(0, min(self.cursor + adjust, self.log_length - 1))
-        elif event.sym == tcod.event.KeySym.K_HOME:
+        elif event.sym == tcod.event.K_HOME:
             self.cursor = 0 #Move to top message
-        elif event.sym == tcod.event.KeySym.K_END:
+        elif event.sym == tcod.event.K_END:
             self.cursor = self.log_length - 1 #Move directly to last message
         else:       #Any other key moves back to main game state
             self.engine.event_handler = MainGameEventHandler(self.engine)
