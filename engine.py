@@ -7,7 +7,7 @@ from entity import Actor
 from game_map import GameMap
 from input_handlers import MainGameEventHandler
 from message_log import MessageLog
-from render_functions import render_bar
+from render_functions import render_bar, render_names_at_mouse_location
 
 if TYPE_CHECKING:
     from entity import Entity
@@ -53,3 +53,5 @@ class Engine:
             total_width=20,
             
         )
+        
+        render_names_at_mouse_location(console=console, x=21, y=44, engine=self)
