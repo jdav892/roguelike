@@ -1,6 +1,7 @@
 import copy
 import tcod
 import color
+import traceback
 
 from engine import Engine
 import entity_factories
@@ -64,7 +65,15 @@ def main():
            engine.event_handler.on_render(console=root_console)
            context.present(root_console)
            
-           engine.event_handler.handle_events(context)
+           try:
+               for event in tcod.event.wait():
+                   context.convert_event(event)
+                   engine.event_handler.handle_events(event)
+           except Exception: #Handle exceptions
+               traceback.print_exc()
+               #Then print error to game log
+               engine.message_log.add_message(traceback.format_exc(), color.error)
+           
            #using engine object to handle screen behavior
     
 if __name__ == "__main__":
