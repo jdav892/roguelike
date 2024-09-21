@@ -185,5 +185,5 @@ class HistoryViewer(EventHandler):
             self.engine.event_handler = MainGameEventHandler(self.engine)
             
     
-    
+#TODO: Fix input handlers to work with new parent 
         
