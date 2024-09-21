@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import Optional, TYPE_CHECKING
+from tcod import libtcodpy
 
 import tcod.event
 
@@ -98,7 +99,7 @@ class MainGameEventHandler(EventHandler):
         elif key == tcod.event.KeySym.ESCAPE:
             #Escape key press exits the game through returning the EscapeAction
             action = EscapeAction(player)
-        elif key == tcod.event.K_v:
+        elif key == tcod.event.KeySym.v:
             self.engine.event_handler = HistoryViewer(self.engine)
             
         return action
@@ -141,15 +142,15 @@ class HistoryViewer(EventHandler):
         self.log_length = len(engine.message_log.messages)
         self.cursor = self.log_length - 1
         
-    def on_render(self, console: tcod.Console) -> None:
+    def on_render(self, console: tcod.console.Console) -> None:
         super().on_render(console) #Draw the main state as background
         
-        log_console = tcod.Console(console.width - 6, console.height - 6)
+        log_console = tcod.console.Console(console.width - 6, console.height - 6)
         
         #Draw a frame with a custom banner title.
         log_console.draw_frame(0, 0, log_console.width, log_console.height)
         log_console.print_box(
-            0, 0, log_console.width, 1, "|Message history|", alignment=tcod.CENTER
+            0, 0, log_console.width, 1, "|Message history|", alignment=libtcodpy.CENTER
         )
         
         #Render the message log using the cursor parameter
@@ -176,9 +177,9 @@ class HistoryViewer(EventHandler):
             else:
                 #Otherwise move while staying clamped to the bounds of log
                 self.cursor = max(0, min(self.cursor + adjust, self.log_length - 1))
-        elif event.sym == tcod.event.K_HOME:
+        elif event.sym == tcod.event.KeySym.HOME:
             self.cursor = 0 #Move to top message
-        elif event.sym == tcod.event.K_END:
+        elif event.sym == tcod.event.KeySym.END:
             self.cursor = self.log_length - 1 #Move directly to last message
         else:       #Any other key moves back to main game state
             self.engine.event_handler = MainGameEventHandler(self.engine)
