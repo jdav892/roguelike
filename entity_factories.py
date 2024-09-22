@@ -1,6 +1,7 @@
 from components.ai import HostileEnemy
+from components.consumable import HealingConsumable
 from components.fighter import Fighter
-from entity import Actor
+from entity import Actor, Item
 
 
 
@@ -26,3 +27,10 @@ ogre = Actor(
     name="Ogre",
     ai_cls=HostileEnemy,
     fighter=Fighter(hp=16, defense=1, power=4))
+
+health_potion = Item(
+    char="!",
+    color=(127, 0, 255),
+    name="Healing Potion",
+    consumable=HealingConsumable(amount=4)
+)
