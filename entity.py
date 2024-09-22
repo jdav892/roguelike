@@ -97,7 +97,7 @@ class Actor(Entity):
         
         self.fighter = fighter
         self.fighter.parent = self
-        
+        #starting point to also implement inventory for monsters to create more stimulating combat in the future
         self.inventory = inventory
         self.inventory.parent = self
         
