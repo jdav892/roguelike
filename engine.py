@@ -28,7 +28,7 @@ class Engine:
         self.player = player
      
     def handle_enemy_turns(self) -> None:
-        for entity in self.game_map.entities - {self.player}:
+        for entity in set(self.game_map.actors) - {self.player}:
             #Fairly sure this is printing every npc that on the generated dungeon floor
             #Changed this from printing presence of enemy to using ai for movement
             if entity.ai:

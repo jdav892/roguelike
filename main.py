@@ -13,12 +13,13 @@ def main():
    screen_height = 50 
    
    map_width = 80
-   map_height = 43
+   map_height = 45
    
    room_max_size = 10
    room_min_size = 6
    max_rooms = 30
    max_monsters_per_room = 2
+   max_items_per_room = 2
    
 
    #title of screen
@@ -41,6 +42,7 @@ def main():
        map_width=map_width,
        map_height=map_height,
        max_monsters_per_room=max_monsters_per_room,
+       max_items_per_room=max_items_per_room,
        engine = engine
    )
    engine.update_fov()
