@@ -5,9 +5,12 @@ from tcod.console import Console
 from tcod.map import compute_fov
 from entity import Actor
 from game_map import GameMap
+import exceptions
 from input_handlers import MainGameEventHandler
 from message_log import MessageLog
 from render_functions import render_bar, render_names_at_mouse_location
+
+
 
 if TYPE_CHECKING:
     from entity import Entity
@@ -29,7 +32,11 @@ class Engine:
             #Fairly sure this is printing every npc that on the generated dungeon floor
             #Changed this from printing presence of enemy to using ai for movement
             if entity.ai:
-                entity.ai.perform() 
+                try:
+                    entity.ai.perform()
+                except exceptions.Impossible:
+                    pass #Ignore Impossible actions
+                    
                
     def update_fov(self) -> None:
         """Recompute the visible area based on the players point of view."""
