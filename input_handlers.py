@@ -165,7 +165,7 @@ class InventoryEventHandler(AskUserEventHandler):
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[Action]:
         player = self.engine.player
         key = event.sym
-        index = key - tcod.event.K_a
+        index = key - tcod.event.KeySym.a
         
         if 0 <= index <= 26:
             try:
@@ -232,7 +232,7 @@ class MainGameEventHandler(EventHandler):
         elif key == tcod.event.KeySym.i:
             self.engine.event_handler = InventoryActivateHandler(self.engine)
         elif key == tcod.event.KeySym.d:
-            action == self.engine.event_handler = InventoryDropHandler(self.engine)
+            self.engine.event_handler = InventoryDropHandler(self.engine)
             
         return action
 
