@@ -3,6 +3,7 @@ from typing import Optional, TYPE_CHECKING
 from tcod import libtcodpy
 
 import tcod.event
+import actions
 
 from actions import (
     Action,
@@ -177,12 +178,27 @@ class InventoryEventHandler(AskUserEventHandler):
     
     def on_item_selected(self, item: Item) -> Optional[Action]:
         """Called when the user selects a valid item"""
-        raise NotImplementedError()               
+        raise NotImplementedError()
+    
+class InventoryActivateHandler(InventoryEventHandler):
+    """Handling of using inventory items"""
+    
+    TITLE = "Select an item to use"
+    
+    def on_item_selected(self, item: Item) -> Optional[Action]:
+        """Return the action for the selected item"""
+        return item.consumable.get_action(self.engine.player)
+    
+class InventoryDropHandler(InventoryEventHandler):
+    """Handles dropping of inventory items"""
+    
+    TITLE = "Select an item to drop"
+    
+    def on_item_selected(self, item: Item) -> Optional[Action]:
+        """Drop this item"""
+        return actions.DropItem(self.engine.player, item)              
     
 class MainGameEventHandler(EventHandler):
-
-    
-    
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[Action]:
         #Set to None if no key valid key is pressed.
         action: Optional[Action] = None
