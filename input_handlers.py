@@ -45,7 +45,7 @@ WAIT_KEYS = {
 
 CONFIRM_KEYS = {
     tcod.event.KeySym.RETURN,
-    tcod.event.KeySym.ENTER,
+    tcod.event.KeySym.KP_ENTER,
 }
 
 
@@ -213,8 +213,8 @@ class SelectIndexHandler(AskUserEventHandler):
         """Highlight the tile under the cursor"""
         super().on_render(console)
         x, y = self.engine.mouse_location
-        console.tiles_rgb["bg"][x, y] = color.white
-        console.tiles_rgb["fg"][x, y] = color.black
+        console.rgb["bg"][x, y] = color.white
+        console.rgb["fg"][x, y] = color.black
         
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[Action]:
         """Check for key movement or confirmation keys"""
