@@ -2,7 +2,6 @@ from __future__ import annotations
 from typing import Iterable, Iterator, Optional, TYPE_CHECKING
 import numpy as np
 from tcod.console import Console
-
 from entity import Actor, Item
 import tile_types
 

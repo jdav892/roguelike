@@ -6,7 +6,6 @@ import entity_factories
 from game_map import GameMap
 import tile_types
 
-
 if TYPE_CHECKING:
     from engine import Engine
 

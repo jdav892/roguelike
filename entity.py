@@ -2,7 +2,6 @@ from __future__ import annotations
 import copy
 import math
 from typing import Optional, Tuple, Type, TypeVar, TYPE_CHECKING, Union
-
 from render_order import RenderOrder
 
 if TYPE_CHECKING:

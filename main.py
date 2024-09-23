@@ -2,7 +2,6 @@ import copy
 import tcod
 import color
 import traceback
-
 from engine import Engine
 import entity_factories
 from procgen import generate_dungeon
@@ -21,14 +20,11 @@ def main():
    max_monsters_per_room = 2
    max_items_per_room = 2
    
-
    #title of screen
    tileset = tcod.tileset.load_tilesheet(
        "roguelike/pyimg.png", 32, 8, tcod.tileset.CHARMAP_TCOD
    )
-   
-   
-   
+         
    #Using Entity to initialize player and npc
    player = copy.deepcopy(entity_factories.player)
    
