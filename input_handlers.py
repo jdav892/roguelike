@@ -296,8 +296,4 @@ class HistoryViewer(EventHandler):
         elif event.sym == tcod.event.KeySym.END:
             self.cursor = self.log_length - 1 #Move directly to last message
         else:       #Any other key moves back to main game state
-            self.engine.event_handler = MainGameEventHandler(self.engine)
-            
-    
-#TODO: Fix input handlers to work with new parent 
-        
+            self.engine.event_handler = MainGameEventHandler(self.engine)         
