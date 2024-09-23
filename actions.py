@@ -70,10 +70,6 @@ class ItemAction(Action):
         """Invoke the items ability, this action will be given for context"""
         self.item.consumable.activate(self)
 
-class EscapeAction(Action):
-    def perform(self) -> None:
-        raise SystemExit()
-
 class DropItem(ItemAction):
     def perform(self) -> None:
         self.entity.inventory.drop(self.item)
@@ -81,8 +77,7 @@ class DropItem(ItemAction):
 class WaitAction(Action):
     def perform(self) -> None:
         pass
-    
-    
+     
 class ActionWithDirection(Action):
     def __init__(self, entity: Actor, dx: int, dy: int):
         super().__init__(entity)
