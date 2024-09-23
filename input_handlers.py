@@ -229,6 +229,10 @@ class MainGameEventHandler(EventHandler):
             self.engine.event_handler = HistoryViewer(self.engine)
         elif key == tcod.event.KeySym.g:
             action = PickupAction(player)
+        elif key == tcod.event.KeySym.i:
+            self.engine.event_handler = InventoryActivateHandler(self.engine)
+        elif key == tcod.event.KeySym.d:
+            action == self.engine.event_handler = InventoryDropHandler(self.engine)
             
         return action
 
