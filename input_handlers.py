@@ -80,8 +80,42 @@ class EventHandler(tcod.event.EventDispatch[Action]):
     
     def on_render(self, console: tcod.Console) -> None:
         self.engine.render(console)
+        
+class AskUserEventHandler(EventHandler):
+    """Handles user input for actions which require special input"""
     
-class MainGameEventHandler(EventHandler): 
+    def handle_action(self, action: Optional[Action]) -> bool:
+        """Return to the main event handler when a valid action was performed"""
+        if super().handle_action(action):
+            self.engine.event_handler = MainGameEventHandler(self.engine)
+            return True
+        return False
+    
+    def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[Action]:
+        """By default any key exits this input handler"""
+        if event.sym in {#Ignore modifiers
+            tcod.event.KeySym.LSHIFT,
+            tcod.event.KeySym.RSHIFT,
+            tcod.event.KeySym.LCTRL,
+            tcod.event.KeySym.RCTRL,
+            tcod.event.KeySym.LALT,
+            tcod.event.KeySym.RALT,
+        }:
+            return None
+        return self.on_exit()    
+    
+    def ev_mousebuttondown(self, event: tcod.event.MouseButtonDown) -> Optional[Action]:
+        """By default any  mouse click exits this input handler"""
+        return self.on_exit()
+    
+    def on_exit(self) -> Optional[Action]:
+        """Called when the user is trying to exit or cancel an action
+           By default this returns to the main event handler.
+        """
+        self.engine.event_handler = MainGameEventHandler(self.engine)
+        return None
+    
+class MainGameEventHandler(EventHandler):
 
     
     
