@@ -101,7 +101,7 @@ class FireBallDamageConsumable(Consumable):
     def activate(self, action: actions.ItemAction) -> None:
         target_xy = action.target_xy
         
-        if not self.engine.game_map.visibile[target_xy]:
+        if not self.engine.game_map.visible[target_xy]:
             raise Impossible("You can't hit what you can't see")
         
         targets_hit = False
@@ -113,7 +113,7 @@ class FireBallDamageConsumable(Consumable):
                 actor.fighter.take_damage(self.damage)
                 targets_hit = True
         if not targets_hit:
-            raise Impossible("There are no targets in the radius.")
+            raise Impossible("There are no targets within the radius")
         self.consume()
 
 class LightningDamageConsumable(Consumable):

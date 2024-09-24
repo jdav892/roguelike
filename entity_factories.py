@@ -49,5 +49,13 @@ lightning_scroll = Item(
     char="~",
     color=(255, 255, 0),
     name="Scroll of Lightning Bolt",
-    consumable=consumable.LightningDamageConsumable(damage=20, maximum_range=5),
+    consumable=consumable.LightningDamageConsumable(damage=20, maximum_range=7),
 )
+
+pyroclasm_scroll = Item(
+    char="~",
+    color=(255, 0, 0),
+    name="Scroll of Pyroclasm",
+    consumable=consumable.FireBallDamageConsumable(damage=25, radius=3),
+)
+
