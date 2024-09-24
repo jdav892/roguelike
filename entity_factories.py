@@ -31,6 +31,13 @@ ogre = Actor(
     inventory=Inventory(capacity=0)
     )
 
+confusion_scroll = Item(
+    char="~",
+    color=(207, 63, 255),
+    name="Scroll of Confusion",
+    consumable=consumable.ConfusionConsumable(number_of_turns=10),
+)
+
 health_potion = Item(
     char="!",
     color=(127, 0, 255),
