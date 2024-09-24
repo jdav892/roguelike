@@ -42,7 +42,7 @@ class BaseAI(Action):
        # Convert from list[List[int]] to List[Tuple[int, int]].
         return [(index[0], index[1]) for index in path]
 
-class ConfusedEnemy(BaseAi):
+class ConfusedEnemy(BaseAI):
     """
     A confused enemy will stumble around for a given number of turns, then revert back to previous ai
     If an actor occupies a tile it is randomly moving into, it will attack
