@@ -9,7 +9,7 @@ import entity_factories
 import input_handlers
 from procgen import generate_dungeon
 
-background_image = tcod.image.load("menu_background.jpeg")[:, :, :3]
+background_image = tcod.image.load("roguelike/menu_background.png")[:, :, :3]
 
 def new_game() -> Engine:
     #Return a new game session as an Engine Instance
@@ -56,14 +56,14 @@ class MainMenu(input_handlers.BaseEventHandler):
             console.height // 2 - 4,
             "Tombs of the Forgotten Kings",
             fg=color.menu_title,
-            alignment=tcod.Center,
+            alignment=tcod.CENTER,
         )
         console.print(
             console.width // 2,
             console.height - 2,
             "By Justin Davila",
             fg=color.menu_title,
-            alignment=tcod.Center,
+            alignment=tcod.CENTER,
         )
         
         menu_width = 24
@@ -76,7 +76,7 @@ class MainMenu(input_handlers.BaseEventHandler):
                 text.ljust(menu_width),
                 fg=color.menu_text,
                 bg=color.black,
-                alignment=tcod.Center,
+                alignment=tcod.CENTER,
                 bg_blend=tcod.BKGND_ALPHA(64)
             )
     def ev_keydown(
