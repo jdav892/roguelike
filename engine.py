@@ -28,7 +28,7 @@ class Engine:
         
     def save_as(self, filename: str) -> None:
         #Save this Engine instance as a compressed file
-        save_data = lzma.compress(pickle.dumps(self))
+        save_data = lzma.compress(pickle.dumps(self))#serializes object hierarchy in python and compresses the data
         with open(filename, "wb") as f:
             f.write(save_data)
      
