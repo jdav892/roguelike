@@ -6,7 +6,6 @@ from tcod.map import compute_fov
 from entity import Actor
 from game_map import GameMap
 import exceptions
-from input_handlers import MainGameEventHandler
 from message_log import MessageLog
 from render_functions import render_bar, render_names_at_mouse_location
 
@@ -15,14 +14,12 @@ from render_functions import render_bar, render_names_at_mouse_location
 if TYPE_CHECKING:
     from entity import Entity
     from game_map import GameMap
-    from input_handlers import EventHandler
 
 
 class Engine:
     game_map: GameMap
     #forced uniqueness using a set because adding an entity to the set twice doesn't make sense
     def __init__(self, player: Actor):
-        self.event_handler: EventHandler = MainGameEventHandler(self)
         self.message_log = MessageLog()
         self.mouse_location = (0, 0)
         self.player = player
