@@ -173,7 +173,7 @@ class AskUserEventHandler(EventHandler):
         return MainGameEventHandler(self.engine)
     
 class CharacterScreenEventHandler(AskUserEventHandler):
-    TITLE = "Character Info"
+    TITLE = "Character Information"
     
     def on_render(self, console: tcod.Console) -> None:
         super().on_render(console)
@@ -202,12 +202,12 @@ class CharacterScreenEventHandler(AskUserEventHandler):
             x=x + 1, y=y + 1, string=f"Level: {self.engine.player.level.current_level}"
         )
         console.print(
-            x=x + 1, y=y + 2, string=f"XP gained: {self.engine.player.level.current_xp}"
+            x=x + 1, y=y + 2, string=f"Experience gained: {self.engine.player.level.current_xp}"
         )
         console.print(
             x=x + 1,
             y=y + 3,
-            string=f"XP needed: {self.engine.player.level.experience_to_next_level}",
+            string=f"Experience needed: {self.engine.player.level.experience_to_next_level}",
         )
         console.print(
             x=x + 1, y=y + 4, string=f"Attack Power: {self.engine.player.fighter.power}"
