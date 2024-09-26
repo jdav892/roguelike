@@ -357,10 +357,14 @@ class MainGameEventHandler(EventHandler):
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
         #Set to None if no key valid key is pressed.
         action: Optional[Action] = None
-        
         key = event.sym
-        
+        modifier = event.mod
         player = self.engine.player
+        
+        if key == tcod.event.KeySym.PERIOD and modifier & (
+            tcod.event.KMOD_LSHIFT | tcod.event.KMOD_RSHIFT
+        ):
+            return actions.TakeStairsAction(player)
         
         #Movement keys based on Up, Down, Left, Right movements.
         #if key == tcod.event.KeySym.UP:
