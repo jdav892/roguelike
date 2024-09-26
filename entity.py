@@ -109,7 +109,7 @@ class Actor(Entity):
         self.inventory = inventory
         self.inventory.parent = self
         self.level = level
-        self.parent.level = self
+        self.level.parent = self
         
     @property
     def is_alive(self) -> bool:

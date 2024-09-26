@@ -22,7 +22,7 @@ goblin = Actor(
     ai_cls=HostileEnemy,
     fighter=Fighter(hp=10, defense=0, power=3),
     inventory=Inventory(capacity=0),
-    level=Level(level_up_base=35),
+    level=Level(xp_given=35),
     
     )
 
@@ -33,7 +33,7 @@ ogre = Actor(
     ai_cls=HostileEnemy,
     fighter=Fighter(hp=16, defense=1, power=4),
     inventory=Inventory(capacity=0),
-    level=Level(level_up_base=100),
+    level=Level(xp_given=100),
     )
 
 confusion_scroll = Item(
