@@ -24,6 +24,7 @@ class Level(BaseComponent):
         
     @property
     def experience_to_next_level(self) -> int:
+        #formula for leveling up, can be modified
         return self.level_up_base + self.current_level * self.level_up_factor
     
     @property
