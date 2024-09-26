@@ -15,11 +15,12 @@ from render_functions import render_bar, render_names_at_mouse_location
 
 if TYPE_CHECKING:
     from entity import Entity
-    from game_map import GameMap
+    from game_map import GameMap, GameWorld
 
 
 class Engine:
     game_map: GameMap
+    game_world: GameWorld
     #forced uniqueness using a set because adding an entity to the set twice doesn't make sense
     def __init__(self, player: Actor):
         self.message_log = MessageLog()
