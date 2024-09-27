@@ -14,7 +14,7 @@ from game_map import GameWorld
 import input_handlers
 
 
-background_image = tcod.image.load("roguelike/menu_background.png")[:, :, :3]
+background_image = tcod.image.load("C:/Users/jay-5/Documents/code/pythonProj/roguelike/menu_background.png")[:, :, :3]
 
 def new_game() -> Engine:
     #Return a new game session as an Engine Instance
@@ -57,7 +57,7 @@ class MainMenu(input_handlers.BaseEventHandler):
     
     def on_render(self, console: tcod.Console) -> None:
         #Render the main menu on a background Image
-        console.draw_semigraphics(background_image, 0, 0)
+        console.draw_semigraphics(background_image, -100, -50)
         
         console.print(
             console.width // 2,
