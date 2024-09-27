@@ -194,8 +194,8 @@ class CharacterScreenEventHandler(AskUserEventHandler):
             height=7,
             title=self.TITLE,
             clear=True,
-            fg=(255, 255, 255),
-            bg=(0, 0, 0),
+            fg=(250, 250, 0),
+            bg=(0, 0, 250),
         )
         
         console.print(
@@ -316,8 +316,8 @@ class InventoryEventHandler(AskUserEventHandler):
             height=height,
             title=self.TITLE,
             clear=True,
-            fg=(255, 255, 255),
-            bg=(0, 0, 0),
+            fg=(255, 255, 0),
+            bg=(0, 0, 255),
         )
         
         if number_of_items_in_inventory > 0:
