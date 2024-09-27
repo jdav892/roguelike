@@ -1,7 +1,7 @@
 # "Dungeon Runner"
 ## Roguelike built in Python using tcod and numpy
 
-![Title Screen](https://ibb.co/98KcjMJ)
+![Title Screen](https://imgur.com/a/PBdrdEV)
 
 # How to Run:
 ## First clone this repository
