@@ -1,5 +1,7 @@
-# Roguelike "Dungeon Runner" in python using tcod and numpy
-## Open to suggestions for new entities/items/scaling
+# "Dungeon Runner"
+## Roguelike built in Python using tcod and numpy
+
+![Title Screen](https://ibb.co/98KcjMJ)
 
 # How to Run:
 ## First clone this repository
@@ -12,9 +14,9 @@ git clone https://github.com/jdav892/roguelike.git
 python main.py
 ```
 
-## Or in editor by running main.py
+## Or in IDE by running main.py
 
 # *Make sure pyimg.png and menu_background.png are in directory before running
 
-
+## Open to suggestions for new entities/items/scaling
 
