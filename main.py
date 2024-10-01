@@ -18,7 +18,7 @@ def main():
    
    #title of screen
    tileset = tcod.tileset.load_tilesheet(
-       "roguelike/pyimg.png", 32, 8, tcod.tileset.CHARMAP_TCOD
+       "C:/Users/jay-5/Documents/code/pythonProj/roguelike/pyimg.png", 32, 8, tcod.tileset.CHARMAP_TCOD
    )
    
    handler: input_handlers.BaseEventHandler = setup_game.MainMenu()
