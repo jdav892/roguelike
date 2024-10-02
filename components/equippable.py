@@ -28,6 +28,11 @@ class Dagger(Equippable):
 class Sword(Equippable):
     def __init__(self) -> None:
         super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+#TODO: Include ranged weapon in equippable items passed through entity factories and rendered on gamemap
+#class Bow(Equippable):
+#    def __init__(self) -> None:
+#        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4, bonus_range=7)
         
 class BattleAxe(Equippable):
     def __init__(self) -> None:
