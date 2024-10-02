@@ -18,6 +18,8 @@ class Equippable(BaseComponent):
         self.equipment_type = equipment_type
         self.power_bonus = power_bonus
         self.defense_bonus = defense_bonus
+    
+#Potentially moving these to their own file in the future for more features
         
 class Dagger(Equippable):
     def __init__(self) -> None:
