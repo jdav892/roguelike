@@ -1,5 +1,5 @@
 from components.ai import HostileEnemy
-from components import consumable
+from components import consumable, equippable
 from components.fighter import Fighter
 from components.inventory import Inventory
 from components.levels import Level
@@ -64,3 +64,44 @@ pyroclasm_scroll = Item(
     consumable=consumable.FireBallDamageConsumable(damage=25, radius=3),
 )
 
+dagger = Item(
+    char=";",
+    color=(0, 191, 255),
+    name="Dagger",
+    equippable=equippable.Dagger(),
+)
+
+sword = Item(
+    char="/",
+    color=(0, 0, 255),
+    name="Sword",
+    equippable=equippable.Sword(),
+)
+
+battle_axe = Item(
+    char="?",
+    color=(255, 0, 0),
+    name="Battle Axe",
+    equippable=equippable.BattleAxe(),
+)
+
+leather_armor = Item(
+    char="[",
+    color=(139, 69, 19),
+    name="Leather Armor",
+    equippable=equippable.LeatherArmor(),
+)
+
+chain_mail = Item(
+    char="(",
+    color=(139, 69, 19),
+    name="Chain Mail",
+    equippable=equippable.ChainMail(),
+)
+
+plate_mail = Item(
+    char="{",
+    color=(139, 69, 19),
+    name="Plate Mail",
+    equippable=equippable.PlateMail()
+)
