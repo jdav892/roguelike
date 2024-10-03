@@ -36,6 +36,8 @@ ogre = Actor(
     level=Level(xp_given=100),
     )
 
+
+
 confusion_scroll = Item(
     char="~",
     color=(207, 63, 255),
