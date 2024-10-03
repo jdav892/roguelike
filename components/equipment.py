@@ -9,7 +9,8 @@ if TYPE_CHECKING:
 
 class Equipment(BaseComponent):
     parent: Actor
-    
+    #Starting point for inventory slots, can iterate to individual slots
+    #Can add to this for a more complex inventory with off hand/ranged weapons
     def __init__(
         self,
         weapon: Optional[Item] = None,
@@ -17,7 +18,8 @@ class Equipment(BaseComponent):
     ):
         self.weapon = weapon
         self.armor = armor
-    
+    #Using defense_bonus/power_bonus to calculate bonus gifted from items
+    #Passing both defense and power to allow for items and grant bonuses in both    
     @property
     def defense_bonus(self) -> int:
         bonus = 0
@@ -41,10 +43,11 @@ class Equipment(BaseComponent):
             bonus += self.weapon.equippable.power_bonus
             
         return bonus
-    
+    #Checking if player has an item equipped
     def item_is_equipped(self, item: Item) -> bool:
         return self.weapon == item or self.armor == item
     
+    #Messaging to game log unequipping/equipping items respectively
     def unequip_message(self, item_name: str) -> None:
         self.parent.gamemap.engine.message_log.add_message(
             f"You remove the {item_name}."
