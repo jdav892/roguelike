@@ -13,8 +13,8 @@ class Fighter(BaseComponent):
     def __init__(self, hp: int, base_defense: int, base_power: int):
         self.max_hp = hp
         self._hp = hp
-        self.defense = base_defense
-        self.power = base_power
+        self.base_defense = base_defense
+        self.base_power = base_power
         
     @property
     def hp(self) -> int:
