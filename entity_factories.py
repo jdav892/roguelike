@@ -1,5 +1,6 @@
 from components.ai import HostileEnemy
 from components import consumable, equippable
+from components.equipment import Equipment
 from components.fighter import Fighter
 from components.inventory import Inventory
 from components.levels import Level
@@ -10,6 +11,7 @@ player = Actor(
     color=(255, 255, 255),
     name="Player",
     ai_cls=HostileEnemy,
+    equipment=Equipment(),
     fighter=Fighter(hp=30, defense=2, power=5),
     inventory=Inventory(capacity=26),
     level=Level(level_up_base=200)
@@ -20,6 +22,7 @@ goblin = Actor(
     color=(63, 127, 63),
     name="Goblin",
     ai_cls=HostileEnemy,
+    equipment=Equipment(),
     fighter=Fighter(hp=10, defense=0, power=3),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=35),
@@ -31,6 +34,7 @@ ogre = Actor(
     color=(255, 0, 0),
     name="Ogre",
     ai_cls=HostileEnemy,
+    equipment=Equipment(),
     fighter=Fighter(hp=16, defense=1, power=4),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=100),
