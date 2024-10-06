@@ -146,3 +146,19 @@ class LightningDamageConsumable(Consumable):
         else:
             raise Impossible("No enemy in range")
 
+
+class BlizzardDamageConsumable(Consumable):
+    def active(self, damage: int, radius: int):
+        self.damage = damage
+        self.radius = radius
+        
+    def get_action(self, consumer: Actor) -> AreaRangedAttackHandler:
+        self.engine.message_log.add_message(
+            "Select a target location", color.needs_target
+        )
+        return AreaRangedAttackHandler(
+            self.engine,
+            radius=self.radius,
+            callback= lambda xy: actions.ItemAction(consumer, self.parent, xy),
+        )
+        return None
