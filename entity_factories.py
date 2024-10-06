@@ -23,24 +23,33 @@ goblin = Actor(
     name="Goblin",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=10, base_defense=0, base_power=3),
+    fighter=Fighter(hp=10, base_defense=2, base_power=4),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=35),
     
     )
 
-ogre = Actor(
+orc = Actor(
     char="O",
-    color=(255, 0, 0),
-    name="Ogre",
+    color=(204, 85, 0),
+    name="orc",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=16, base_defense=1, base_power=4),
+    fighter=Fighter(hp=16, base_defense=3, base_power=6),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=100),
     )
 
-
+ogre = Actor(
+    char="Og",
+    color=(255, 0, 0),
+    name="Ogre",
+    ai_cls=HostileEnemy,
+    equipment=Equipment(),
+    fighter=Fighter(hp=20, base_defense=5, base_power=10),
+    inventory=Inventory(capacity=0),
+    level=Level(xp_given=150)
+)
 
 confusion_scroll = Item(
     char="~",

@@ -14,12 +14,15 @@ if TYPE_CHECKING:
 max_items_by_floor = [
     (1, 1),
     (4, 2),
+    (6, 4),
+    (7, 5),
 ]
 
 max_monsters_by_floor = [
     (1, 2),
     (4, 3),
     (6, 5),
+    (8, 6),
 ]
 
 item_chances: Dict[int, List[Tuple[Entity, int]]] = {
@@ -31,9 +34,12 @@ item_chances: Dict[int, List[Tuple[Entity, int]]] = {
 
 enemy_chances: Dict[int, List[Tuple[Entity, int]]] = {
     0: [(entity_factories.goblin, 80)],
-    3: [(entity_factories.ogre, 15)],
-    5: [(entity_factories.ogre, 30)],
-    7: [(entity_factories.ogre, 60)],
+    2: [(entity_factories.orc, 15)],
+    3: [(entity_factories.ogre, 10)],
+    5: [(entity_factories.orc, 30)],
+    6: [(entity_factories.ogre, 20)],
+    7: [(entity_factories.orc, 60)],
+    8: [(entity_factories.ogre, 40)]
 } 
 
 def get_max_value_for_floor(
