@@ -76,7 +76,14 @@ pyroclasm_scroll = Item(
     char="~",
     color=(255, 0, 0),
     name="Scroll of Pyroclasm",
-    consumable=consumable.PyroclasmDamageConsumable(damage=25, radius=3),
+    consumable=consumable.PyroclasmDamageConsumable(damage=35, radius=3),
+)
+
+blizzard_scroll = Item(
+    char="~",
+    color=(137, 207, 240),
+    name="Scroll of Blizzard",
+    consumable=consumable.BlizzardDamageConsumable(damage=25, radius=3),
 )
 
 dagger = Item(

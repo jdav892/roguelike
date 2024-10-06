@@ -27,7 +27,7 @@ def main():
        screen_width,
        screen_height,
        tileset=tileset,
-       title="Dungeon Runner",
+       title="Crypt Runner",
        vsync=True,
    )as context:
        #Numpy accesses 2D arrays in [y, x] order which is pretty unintuitive but should be noted
