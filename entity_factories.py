@@ -62,7 +62,7 @@ health_potion = Item(
     char="!",
     color=(127, 0, 255),
     name="Healing Potion",
-    consumable=consumable.HealingConsumable(amount=4),
+    consumable=consumable.HealingConsumable(amount=6),
 )
 
 lightning_scroll = Item(
@@ -76,7 +76,7 @@ pyroclasm_scroll = Item(
     char="~",
     color=(255, 0, 0),
     name="Scroll of Pyroclasm",
-    consumable=consumable.FireBallDamageConsumable(damage=25, radius=3),
+    consumable=consumable.PyroclasmDamageConsumable(damage=25, radius=3),
 )
 
 dagger = Item(
