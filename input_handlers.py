@@ -470,7 +470,7 @@ class AreaRangedAttackHandler(SelectIndexHandler):
             y=y - self.radius - 1,
             width=self.radius ** 2,
             height=self.radius**2,
-            fg=color.red,
+            fg=color.target_area,
             clear=False,
         )
     
