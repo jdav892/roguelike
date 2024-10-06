@@ -23,7 +23,7 @@ goblin = Actor(
     name="Goblin",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=10, base_defense=2, base_power=4),
+    fighter=Fighter(hp=10, base_defense=1, base_power=3),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=35),
     
@@ -63,6 +63,13 @@ health_potion = Item(
     color=(127, 0, 255),
     name="Healing Potion",
     consumable=consumable.HealingConsumable(amount=6),
+)
+
+greater_health_potion = Item(
+    char="!",
+    color=(255, 0, 0),
+    name="Greater Healing Potion",
+    consumable=consumable.HealingConsumable(amount=15)
 )
 
 lightning_scroll = Item(
