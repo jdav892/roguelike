@@ -30,7 +30,7 @@ goblin = Actor(
     )
 
 orc = Actor(
-    char="O",
+    char="o",
     color=(204, 85, 0),
     name="orc",
     ai_cls=HostileEnemy,
@@ -41,7 +41,7 @@ orc = Actor(
     )
 
 ogre = Actor(
-    char="Og",
+    char="O",
     color=(255, 0, 0),
     name="Ogre",
     ai_cls=HostileEnemy,
