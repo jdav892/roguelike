@@ -490,15 +490,17 @@ class MainGameEventHandler(EventHandler):
         ):
             return actions.TakeStairsAction(player)
         
-        #Movement keys based on Up, Down, Left, Right movements.
-        #if key == tcod.event.KeySym.UP:
-        #    action = BumpAction(player, dx = 0, dy = -1)
-        #elif key == tcod.event.KeySym.DOWN:
-        #    action = BumpAction(player, dx = 0, dy = 1)
-        #elif key == tcod.event.KeySym.LEFT:
-        #    action = BumpAction(player, dx = -1, dy = 0)
-        #elif key == tcod.event.KeySym.RIGHT:
-        #    action = BumpAction(player, dx = 1, dy = 0)
+        """
+        Movement keys based on Up, Down, Left, Right movements.
+        if key == tcod.event.KeySym.UP:
+            action = BumpAction(player, dx = 0, dy = -1)
+        elif key == tcod.event.KeySym.DOWN:
+            action = BumpAction(player, dx = 0, dy = 1)
+        elif key == tcod.event.KeySym.LEFT:
+            action = BumpAction(player, dx = -1, dy = 0)
+        elif key == tcod.event.KeySym.RIGHT:
+            action = BumpAction(player, dx = 1, dy = 0)
+            """
         
         if key in MOVEMENT_KEYS:
             dx, dy = MOVEMENT_KEYS[key]

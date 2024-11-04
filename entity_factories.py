@@ -103,7 +103,7 @@ dagger = Item(
 sword = Item(
     char="/",
     color=(0, 0, 255),
-    name="Sword",
+    name="Longsword",
     equippable=equippable.Sword(),
 )
 
@@ -124,13 +124,13 @@ leather_armor = Item(
 chain_mail = Item(
     char="(",
     color=(139, 69, 19),
-    name="Chain Mail",
+    name="Chain Mail Upgrade",
     equippable=equippable.ChainMail(),
 )
 
 plate_mail = Item(
     char="{",
     color=(139, 69, 19),
-    name="Plate Mail",
+    name="Plate Mail Upgrade",
     equippable=equippable.PlateMail()
 )
